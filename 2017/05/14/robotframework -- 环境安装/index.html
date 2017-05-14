@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="just go ahead">
+<meta name="description" content="今天跟大家介绍一下自动化测试框架Robotframework的环境安装。本文以在python环境的机器上安装和使用RobotFramework为例。  安装python下载网址：https://www.python.org/downloads/下载完成后，设置环境变量: 计算机&amp;gt;属性&amp;gt;高级系统设置&amp;gt;环境变量&amp;gt;系统变量&amp;gt;Path, 点击新建，加入${python的安装路">
 <meta name="keywords" content="robotframework,template,自动化测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="robotframework -- 环境安装">
 <meta property="og:url" content="http://yoursite.com/2017/05/14/robotframework -- 环境安装/index.html">
 <meta property="og:site_name" content="poem~">
-<meta property="og:description" content="just go ahead">
-<meta property="og:updated_time" content="2017-05-14T13:59:23.174Z">
+<meta property="og:description" content="今天跟大家介绍一下自动化测试框架Robotframework的环境安装。本文以在python环境的机器上安装和使用RobotFramework为例。  安装python下载网址：https://www.python.org/downloads/下载完成后，设置环境变量: 计算机&amp;gt;属性&amp;gt;高级系统设置&amp;gt;环境变量&amp;gt;系统变量&amp;gt;Path, 点击新建，加入${python的安装路">
+<meta property="og:updated_time" content="2017-05-14T15:10:51.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="robotframework -- 环境安装">
-<meta name="twitter:description" content="just go ahead">
+<meta name="twitter:description" content="今天跟大家介绍一下自动化测试框架Robotframework的环境安装。本文以在python环境的机器上安装和使用RobotFramework为例。  安装python下载网址：https://www.python.org/downloads/下载完成后，设置环境变量: 计算机&amp;gt;属性&amp;gt;高级系统设置&amp;gt;环境变量&amp;gt;系统变量&amp;gt;Path, 点击新建，加入${python的安装路">
 
 
 
@@ -359,7 +359,24 @@
       
 
       
-        
+        <p>今天跟大家介绍一下自动化测试框架Robotframework的环境安装。本文以在python环境的机器上安装和使用RobotFramework为例。</p>
+<ol>
+<li><p>安装python<br><strong>下载网址</strong>：<a href="https://www.python.org/downloads/" target="_blank" rel="external">https://www.python.org/downloads/</a><br>下载完成后，设置<strong>环境变量</strong>: 计算机&gt;属性&gt;高级系统设置&gt;环境变量&gt;系统变量&gt;Path, 点击新建，加入${python的安装路径} 和 ${python的安装路径}\Scripts, 例如：D:\Program Files\Python, D:\Program Files\Python\Scripts\Scripts<br>打开DOS，输入python，<strong>验证</strong>环境是否安装好；</p>
+</li>
+<li><p>安装pip<br>cd 到${python目录}\Scripts, z执行easy_install.exe pip,<br>之后会在Scripts文件夹下出现一系列与pip有关的文件，其中有pip.exe, 说明pip命令可以使用；</p>
+</li>
+<li><p>安装WxPython<br>Wxpython是python非常有名的一个GUI库，因为ride是基于这个库开发的，所以这个必须安装，<br><a href="https://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1" target="_blank" rel="external">https://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1</a> 下载对应的python版本的uinicode版本的WxPython</p>
+</li>
+<li><p>安装Robot Framework<br>DOS中执行 pip install robotframework</p>
+</li>
+<li><p>安装robotframework-ride<br>这是robotframework的图形化界面<br>DOS中执行 pip install robotframework-ride</p>
+</li>
+<li><p>安装需要的一些library<br>直接pip安装，例如：<br>pip install robotframework-selenium2library<br>pip install robotframework-ftplibrary<br>pip install robotframework-archivelibrary</p>
+</li>
+</ol>
+<hr>
+<p>Refrences：<a href="http://www.51testing.com/html/54/152754-867431.html" target="_blank" rel="external">http://www.51testing.com/html/54/152754-867431.html</a></p>
+
       
     </div>
 
@@ -397,22 +414,6 @@
         
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/14/robotframework-how-to-write-good-test-cases/" rel="prev" title="robotframework-how to write good test cases">
-                robotframework-how to write good test cases <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
 
       
@@ -472,7 +473,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
