@@ -273,6 +273,210 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/17/robot-framework-write-good-test-cases/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="poem~">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="poem~">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/05/17/robot-framework-write-good-test-cases/" itemprop="url">robot framework -- write good test cases</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-17T21:08:10+08:00">
+                2017-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/robotframework/" itemprop="url" rel="index">
+                    <span itemprop="name">robotframework</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/17/robot-framework-write-good-test-cases/" class="leancloud_visitors" data-flag-title="robot framework -- write good test cases">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="background"><a href="#background" class="headerlink" title="background"></a>background</h1><p>  在team里做了几个模块的automation了,然而有时候schedule比较紧,写的时候更注重的是如何不漏掉每个observe point 和check point,以及如何构造keyword,却没怎么注意test case书写的规范，今天我们就来浅谈一下这方面的一些知识。</p>
+<h1 id="How-to-write-good-test-cases-using-RobotFramework"><a href="#How-to-write-good-test-cases-using-RobotFramework" class="headerlink" title="How to write good test cases using RobotFramework"></a>How to write good test cases using RobotFramework</h1><p>以下参考了robotframework官方文档上的一些书写规范。</p>
+<ol>
+<li><p>test suite names</p>
+<ul>
+<li>尽量具有描述性</li>
+<li>没有拓展名，以空格代替下划线</li>
+<li>如果名字都是小写的，那么每个单词开头要大写<br>例如:<ul>
+<li>login_tests.robot -&gt; Login Tests</li>
+<li>IP_v4_and_v6 -&gt; IP v4 and v6</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>test case names</p>
+<ul>
+<li>同样要具备可描述性</li>
+<li>如果一个suite包含了很多相似的测试用例，那么每个测试用例的名字可以短点儿，<br>例如: invalid login文件里包含了相关的一些测试用例，那么下面这些名字就是比较合适的：<br><blockquote> *<strong> Test Cases *</strong><br>Empty Password<br>Empty Username<br>Invalid Username<br></blockquote><br>下面的就有点冗余了:<blockquote>
+<p>Login With Empty Password Should Fail</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>keyword names</p>
+<ul>
+<li>描述性强 &amp; 清晰</li>
+<li>解释出keyword是完成什么功能的，[而不要用这个keyword来描述这个功能是怎么做的]</li>
+<li>具有概括性，<br>例如： Inptut Text, Administrator logs into system</li>
+<li>当keyword name 短的时候：<blockquote>
+<p># 首字母大写<br> like:<br> Input Text<br> Login With Valid Credentials</p>
+<p># 而不要这样<br>Input Valid Username And Valid Password And Click Login Button</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>  当keyword name长的时候(like a sentence)：
+&gt; \# 第一个单词的首字母大写
+  Administrator logs into system  
+</code></pre><ol>
+<li><p>naming setup and teardown</p>
+<ul>
+<li>描述功能的词，易懂</li>
+<li>如果setup or teardown包含很多步骤，那么可以<ul>
+<li>使用更有概括性的词语</li>
+<li>使用robotframework 内置的keywork（如果这些步骤的关键字都已写好）: <strong>Run Keyword</strong><br>以下举例来展示<strong>好的写法</strong>与<strong>不好的写好</strong><blockquote>
+<p><strong><em>Bad practice</em></strong><br>*<strong> Settings *</strong><br>Suite Setup     Login To System, Add User, Activate Alarms And Check Balance</p>
+<p><strong><em>Good practice</em></strong><br>*<strong> Settings *</strong><br>Suite Setup     Initialize System</p>
+<p>*<strong> Settings *</strong><br>Suite Setup     Run Keywords<br>…             Login To System    AND<br>…             Add User           AND<br>…             Activate Alarms    AND<br>…             Check Balance</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Documentation</p>
+<ul>
+<li>Test suite documentation</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/Hexo-GitHub博客备份/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -614,7 +818,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -625,7 +829,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -636,7 +840,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
